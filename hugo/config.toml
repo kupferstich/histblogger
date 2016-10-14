@@ -3,7 +3,7 @@ title = "Kupferstichsammlung Hamburg"
 languageCode = "en-us"
 theme = "robust"   
 
-disqusShortname = "kupferstich"
+disqusShortname = "histblogger"
 
 [params]
   dateformat = "02.01.2006"

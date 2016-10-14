@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    {{ partial "html_head.html" . }}
+  </head>
+
+  <body>
+    {{ if ne (getenv "HUGO_ENV") "DEV" }}
+    {{ template "_internal/google_analytics.html" . }}
+    {{ end }}
+    <div class="ui container">
+      {{ partial "breadcrumb" . }}
+      {{ partial "header.html" . }}
+      {{ partial "vertical_menu.html" . }}
+      <div class="ui link cards">
+      {{ range $i, $p := (.Paginate .Data.Pages).Pages }}
+      {{ $p.Render "li" }}
+      {{ end }}
+      </div>
+    </div>
+
+
+   
+    <script src="/js/jquery-3.1.1.min.js"></script>
+
+  </body>
+</html>
+

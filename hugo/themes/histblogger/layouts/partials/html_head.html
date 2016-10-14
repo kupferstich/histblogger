@@ -1,0 +1,8 @@
+{{ partial "meta.html" . }}
+    <link href="//fonts.googleapis.com/css?family=Noto+Sans:400,700|Montserrat" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/semantic/semantic.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>{{ block "title" . }}{{ end }}{{ .Site.Title }}</title>
+    {{ block "meta" . }}{{ end }}
+ <script src="/semantic/semantic.min.js"></script>

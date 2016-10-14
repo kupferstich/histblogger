@@ -1,0 +1,25 @@
+<div class="ui right fixed vertical menu">
+  <div class="item">
+    <div class="header">Menü</div>
+    <div class="menu">
+      <a href="{{ $.Site.BaseURL}}artwork/" class="item">Kunstwerke</a>
+      <a href="{{ $.Site.BaseURL}}artist/" class="item">Künstler</a>
+    </div>
+  </div>
+  {{ range $key, $value := .Site.Taxonomies }}
+  <div class="item">
+    <div class="header">{{ $key }}</div>
+    <div class="menu">
+       {{ range first 10 $value.ByCount }}
+      <a class="item" href="{{ $.Site.BaseURL}}{{ $key }}/{{ .Name | urlize }}">{{ .Name }}({{ .Count }})</a>
+       {{ end }}
+    </div>
+  </div>
+  {{ end }}
+  <div class="item">
+    <div class="menu">
+      <a class="item">Impressum</a>
+      <a class="item">Credits</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="ui breadcrumb">
+  <a class="section" href="{{ .Site.BaseURL }}">Home</a>
+  {{ with .Section }}
+  <div class="divider"> / </div>
+  <a href="{{ $.Site.BaseURL }}{{ . | urlize }}/" class="section">{{ . }}</a>
+  {{ end }}
+  <div class="divider"> / </div>
+  <div class="active section">{{ .Title }}</div>
+</div>
