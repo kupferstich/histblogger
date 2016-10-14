@@ -1,0 +1,21 @@
+baseurl = "https://kupferstich.github.io/"
+title = "Kupferstichsammlung Hamburg"
+languageCode = "en-us"
+theme = "robust"   
+
+disqusShortname = "kupferstich"
+
+[params]
+  dateformat = "02.01.2006"
+
+[[menu.main]]
+    name = "about hugo"
+    pre = "<i class='fa fa-heart'></i>"
+    weight = -110
+    identifier = "about"
+    url = "/about/"
+[[menu.main]]
+    name = "getting started"
+    pre = "<i class='fa fa-road'></i>"
+    weight = -100
+    url = "/getting-started/"
