@@ -4,8 +4,9 @@
   <a href="{{ .Paginator.Prev.URL }}" rel="prev" class="item">&laquo;</a>
   {{ end }}
 
+{{ $pageNumber := .Paginator.PageNumber }}
 {{ range .Paginator.Pagers }}
-<a href="{{.URL}}" class="item">{{ .PageNumber }}</a>
+<a href="{{.URL}}" class="item{{ if eq $pageNumber .PageNumber}} active{{ end }}">{{ .PageNumber }}</a>
 {{ end }}
   {{ if .Paginator.HasNext }}
   <a href="{{ .Paginator.Next.URL }}" rel="next" class="item">&raquo;</a>

@@ -1,2 +1,45 @@
-
-  {{ .Render "card" }}
+<div class="item">
+  {{ with  .Params.imagethumb }}
+  <div class="ui tiny image">
+          <img src="{{ $.Site.BaseURL }}{{ . }}">
+  </div>
+  {{ end }}
+  <div class="content">
+      <a class="header" href="{{ .Permalink }}">{{ .Title }}</a>
+      
+      <div class="description">
+        <p>{{ .Description }}</p>
+        
+      </div>
+      <div class="extra">
+        Additional Details
+      </div>
+    </div>
+</div>
+<!--<div class="card">
+    
+    <a href="{{ .Permalink }}" class="image">
+   
+      <img src="{{ $.Site.BaseURL }}{{.Params.imagecard}}">
+    </a>
+    
+    <div class="content">
+     
+      
+      <div class="description">
+      
+        <b>{{ .Title }}</b><br>
+        {{ .Description }}
+      </div>
+    </div>
+    <div class="extra content">
+      
+      <span>
+        {{ range .Params.tags }}
+        <a class="ui tag label" href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}" >{{ . }}</a>
+        {{ end }}
+      </span>
+    </div>
+    
+  </div>
+-->

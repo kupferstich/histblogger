@@ -14,9 +14,9 @@
       <div class="ui segment stacked">
       {{ partial "header.html" . }}
       {{ partial "vertical_menu.html" . }}
-      <div class="ui items">
+      <div class="ui link cards">
       {{ range $i, $p := (.Paginate .Data.Pages).Pages }}
-      {{ $p.Render "li" }}
+      {{ $p.Render "card" }}
       {{ end }}
       </div>
       </div>

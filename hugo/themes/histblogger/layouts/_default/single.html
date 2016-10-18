@@ -16,7 +16,7 @@
       {{ partial "vertical_menu.html" . }}
       <div>
         <h2>{{ .Title }}</h2>
-        <img src="{{ $.Site.BaseURL }}{{ .Params.imagefull }}">
+        <img src="{{ $.Site.BaseURL }}{{ .Params.imagefull }}" class="ui fluid image rounded">
         <div class="segment">
           {{ .Content }}
         </div>
