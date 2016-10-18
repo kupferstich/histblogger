@@ -8,15 +8,21 @@
     {{ if ne (getenv "HUGO_ENV") "DEV" }}
     {{ template "_internal/google_analytics.html" . }}
     {{ end }}
+    <div class="ui black segment">
     <div class="ui container">
       {{ partial "breadcrumb" . }}
-      {{ partial "header.html" . }}
+       <div class="ui grey segment">
       
+      {{ partial "vertical_menu.html" . }}
       <div>
         <h2>{{ .Title }}</h2>
-        <img src="{{ $.Site.BaseURL }}{{ .Params.thumbnail }}">
-        <a href="{{ .Permalink }}" class="thumb"{{ with .Params.thumbnail }} style="background-image: url({{ $.Site.BaseURL }}{{ . }});"{{ end }}></a>
+        <img src="{{ $.Site.BaseURL }}{{ .Params.imagefull }}">
+        <div class="segment">
+          {{ .Content }}
+        </div>
       </div>
+       </div>
+    </div>
     </div>
 
 

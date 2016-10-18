@@ -1,7 +1,8 @@
 baseurl = "https://kupferstich.github.io/"
 title = "Kupferstichsammlung Hamburg"
 languageCode = "en-us"
-theme = "histblogger"   
+theme = "histblogger"
+paginate = 12   
 
 disqusShortname = "histblogger"
 
