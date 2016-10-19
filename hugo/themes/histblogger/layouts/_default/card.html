@@ -1,5 +1,4 @@
-<div class="card">
-    
+<div class="ui fluid card">   
     <a href="{{ .Permalink }}" class="image">
    
       <img src="{{ $.Site.BaseURL }}{{.Params.imagecard}}">
@@ -7,22 +6,20 @@
     
     <div class="content">
       <!--<div class="header"></div>-->
-      
+     <a href="{{ .Permalink }}" class="header">{{ .Title }}</a>
+      <div class="meta">
+        <span class="date">{{ .Date.Format .Site.Params.dateformat }}</span>
+      </div>
       <div class="description">
-       <!-- <span class="right floated">
-        Erstellt: {{ .Params.yearissued }}
-      </span>-->
-        <b>{{ .Title }}</b><br>
-        {{ .Description }}
+        {{ .Description }}<br>
+        Künstler: 
+        {{ $artists := .Site.Data.artist }}
+        {{ range .Params.artists }}
+        {{ $artist := index $artists . }}
+        <a href="{{ $.Site.BaseURL }}artist/{{ $artist.personID }}">{{ $artist.FullName }}</a>
+        {{ end }}
       </div>
     </div>
-    <div class="extra content">
-      
-      <span>
-        {{ range .Params.tags }}
-        <a class="ui tag label" href="{{ $.Site.BaseURL }}/tags/{{ . | urlize }}" >{{ . }}</a>
-        {{ end }}
-      </span>
-    </div>
+   
     
   </div>
