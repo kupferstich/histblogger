@@ -16,14 +16,30 @@
         </div>
             <div class="sixteen wide column">
                 <div class="ui segment black">
-                <h1>Kunstwerk</h1>
+                
                 <h2>{{ .Title }}</h2>
         <img src="{{ $.Site.BaseURL }}{{ .Params.imagemedium }}" class="ui image rounded">
         <div class="segment">
           {{ .Content }}
+          
+          {{ $data := index .Site.Data.artwork .Params.id }}
+          {{ $params := .Params }}
+        <div class="ui divider"></div>
+         <div class="ui stackable two column grid">
+              {{ range $index, $element := $data.picture.Areas }}
+              <div class="column">
+                  <div class="ui segment grey">
+                  <img src="{{ $.Site.BaseURL }}{{ $params.imagebase }}area_{{ $index }}.jpg" class="ui middle aligned image">
+                {{ $element.areaID }} 
+                {{ $element.Text | markdownify }} 
+                    </div>
+              </div>
+              {{ end }}
+            </div>
         </div>
                 </div>
-                {{ partial "pagination.html" . }}
+                {{ template "_internal/disqus.html" . }}
+               
             </div>  
             
     </div>

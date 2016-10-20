@@ -8,29 +8,28 @@
     {{ if ne (getenv "HUGO_ENV") "DEV" }}
     {{ template "_internal/google_analytics.html" . }}
     {{ end }}
-    <div class="ui black segment">
-    <div class="ui container ">
-      {{ partial "breadcrumb" . }}
-      <div class="ui segment stacked">
-      {{ partial "header.html" . }}
-      {{ partial "vertical_menu.html" . }}
-      <div class="ui three stackable cards">
-        
-      {{ range $i, $p := (.Paginate .Data.Pages).Pages }}
-      {{ $p.Render "card" }}
-      {{ end }}
-      </div>
-      </div>
-      <div>
-        {{ partial "pagination.html" . }}
-        
-      </div>
+    <div class="ui grid container">
+        <div class="sixteen wide column">
+            {{ partial "breadcrumb" . }}
+            {{ partial "header" . }}
+            {{ partial "top_menu" . }}
+        </div>
+          <div class="sixteen wide column">
+                <div class="ui segment black">
+                <h1>Kunstwerke</h1>
+
+                    <div class="ui three stackable cards">
+                        {{ range $i, $p := (.Paginate .Data.Pages).Pages }}
+                        {{ $p.Render "card" }}
+                        {{ end }}
+                    </div>
+                </div>
+ 
+        {{ partial "pagination.html" . }}     
+      
     </div>
     </div>
 
-   
-   
-   
    {{ partial "footer.html" . }}
   </body>
 </html>
