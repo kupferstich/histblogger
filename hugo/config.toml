@@ -1,4 +1,5 @@
-baseurl = "https://kupferstich.github.io/"
+#baseurl = "https://kupferstich.github.io/"
+baseurl = "http://kupferstich.apxp.info/"
 title = "Kupferstichsammlung Hamburg"
 languageCode = "en-us"
 theme = "histblogger"

@@ -1,48 +1,27 @@
-<!DOCTYPE html> 
-<html>
-  <head>
-    {{ partial "html_head.html" . }}
-  </head>
-
-  <body>
-    {{ if ne (getenv "HUGO_ENV") "DEV" }}
-    {{ template "_internal/google_analytics.html" . }}
-    {{ end }}
-    <div class="ui grid container">
-        <div class="sixteen wide column">
-            {{ partial "breadcrumb" . }}
-            {{ partial "header" . }}
-            {{ partial "top_menu" . }}
-        </div>
-            <div class="sixteen wide column">
-                <div class="ui segment black">
-                
-                <h2>{{ .Title }}</h2>
-        <img src="{{ $.Site.BaseURL }}{{ .Params.imagemedium }}" class="ui image rounded">
-        <div class="segment">
-          {{ .Content }}
-          
-          {{ $data := index .Site.Data.artwork .Params.id }}
-          {{ $params := .Params }}
-        <div class="ui divider"></div>
-         <div class="ui stackable two column grid">
-              {{ range $index, $element := $data.picture.Areas }}
-              <div class="column">
-                  <div class="ui segment grey">
-                  <img src="{{ $.Site.BaseURL }}{{ $params.imagebase }}area_{{ $index }}.jpg" class="ui middle aligned image">
-                {{ $element.areaID }} 
-                {{ $element.Text | markdownify }} 
-                    </div>
-              </div>
-              {{ end }}
-            </div>
-        </div>
+{{ define "main" }}  
+      <h2>{{ .Title }}</h2>
+    <img src="{{ $.Site.BaseURL }}{{ .Params.imagemedium }}" class="ui image rounded">
+    <div class="segment">
+      {{ .Content }}
+      
+      {{ $data := index .Site.Data.artwork .Params.id }}
+      {{ $params := .Params }}
+    <div class="ui divider"></div>
+      <div class="ui stackable two column grid">
+          {{ range $index, $element := $data.picture.Areas }}
+          <div class="column">
+              <div class="ui segment grey">
+              <img src="{{ $.Site.BaseURL }}{{ $params.imagebase }}area_{{ $index }}.jpg" class="ui middle aligned image">
+            {{ $element.areaID }} 
+            {{ $element.Text | markdownify }} 
                 </div>
-                {{ template "_internal/disqus.html" . }}
-               
-            </div>  
-            
+          </div>
+          {{ end }}
+        </div>
     </div>
-   {{ partial "footer.html" . }}
-  </body>
-</html>
+    <div class="ui divider"></div>
+    <div class="segment">
+    {{ template "_internal/disqus.html" . }}
+    </div>
+  {{ end }}
+                
