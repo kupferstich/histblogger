@@ -1,6 +1,6 @@
 {{ $artworks := .Site.Data.artwork }}
 {{ $data := index $artworks .Params.id}}
-<b>Erstellt</b>: <i class="calendar icon"></i>{{ $data.picture.YearIssued }}<br><br>
+<b>Erstellt</b>: <i class="calendar icon"></i>{{ $data.YearIssued }}<br><br>
 {{ partial "artists.html" . }}<br><br>
 
     <b>Tags</b>: 

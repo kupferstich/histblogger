@@ -2,9 +2,14 @@
       <h2>{{ .Title }}</h2>
     <div class="ui stackable two column grid">
       <div class="column">
-    <img src="{{ $.Site.BaseURL }}{{ .Params.imagemedium }}" class="ui left floated image rounded">
+        <a href="{{ $.Site.BaseURL }}{{ .Params.imagefull }}" target="_blank">
+    <img src="{{ $.Site.BaseURL }}{{ .Params.imagemedium }}" class="ui left floated image rounded popups" data-position="right center" data-variation="inverted large" data-content="Vollbild in neuem Fenster/Tab öffnen">
+        </a>
+       <div class="ui clearing divider"></div> 
       {{ partial "artworkmeta.html" . }}
-      {{ .Content }}
+        <div class="ui divider"></div>
+        {{ .Content }}
+        
       </div>
       <div class="column">
       {{ partial "areas.html" . }}
@@ -12,7 +17,11 @@
       
     </div>
     <div class="ui divider"></div>
-    <div class="segment">
+    <div class="ui segment">
+    {{ partial "share.html" . }}
+    </div>
+    <div class="ui segment">
+      
     {{ template "_internal/disqus.html" . }}
     </div>
   {{ end }}
