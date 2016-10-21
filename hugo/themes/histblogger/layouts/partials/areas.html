@@ -1,0 +1,22 @@
+{{ $data := index .Site.Data.artwork .Params.id }}
+{{ $params := .Params }}
+<h3>Entdecke die einzelnen Bereiche auf dem Bild</h3>
+<p>Mehr Informationen zu den einzelnen Bereichen und deren Symbolick können hier angeklickt werden.</p>
+<div class="ui styled accordion">
+
+  {{ range $index, $element := $data.Areas }}
+  
+  <div class="title">
+    <i class="dropdown icon"></i>
+    {{ $element.areaID }}
+  </div>
+  <div class="content">
+     <img src="{{ $.Site.BaseURL }}{{ $params.imagebase }}area_{{ $index }}.jpg" class="ui left floated image rounded" style="padding-bottom:0.5em;">
+     {{ $element.Text | markdownify }} 
+     
+  </div>
+  <div style="clear:left;"></div>
+  
+{{ end }}
+</div>
+

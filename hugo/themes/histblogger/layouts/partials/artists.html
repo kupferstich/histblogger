@@ -1,0 +1,12 @@
+<b>Künstler</b>: 
+{{ $artists := .Site.Data.artist }}
+{{ range .Params.artists }}
+    {{ $artist := index $artists . }}
+    {{ with $artist}}
+        <div class="ui basic label">
+        <a href="{{ $.Site.BaseURL }}artist/{{ $artist.personID }}">
+        <i class="user icon"></i>
+        {{ $artist.FullName }}</a>
+        </div>
+    {{ end }}
+{{ end }}

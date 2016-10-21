@@ -1,0 +1,29 @@
+{{ $artists := .Site.Data.artist }}
+{{ $artworks := .Site.Data.artwork }}
+{{ $artist := index $artists .Params.id }}
+{{ $ := . }}
+<div class="ui feed">
+{{ range $artist.Pictures  }}
+{{ $pic := index $artworks . }}
+{{ if eq $pic.Status "fertig" }}
+<div class="event">
+    <div class="label">
+       
+    </div>
+    <div class="content">
+      <div class="date">
+        {{ $pic.YearIssued }}
+      </div>
+      <div class="summary">
+         <a href="{{ $.Site.BaseURL }}artwork/{{ $pic.ID }}/">{{ $pic.Title }}</a><br>
+         {{ $pic.Topic }}
+      </div>
+      <div class="extra images">
+        <a href="{{ $.Site.BaseURL }}artwork/{{ $pic.ID }}/"><img src="{{ $.Site.BaseURL}}img/artwork/{{ $pic.ID }}/{{  $pic.ID }}_small.jpg"></a>
+       
+      </div>
+    </div>
+  </div>
+{{ end }}
+{{ end }}
+</div>

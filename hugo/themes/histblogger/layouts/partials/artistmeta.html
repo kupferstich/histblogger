@@ -1,0 +1,5 @@
+{{ $artists := .Site.Data.artist }}
+{{ $artist := index $artists .Params.id }}
+Geboren: {{ $artist.YearBirth }} in {{ $artist.CityBirth }}<br>
+Gestorben: {{ $artist.YearDeath }} in {{ $artist.CityDeath }}<br>
+<p>{{ $artist.Text }} </p>
