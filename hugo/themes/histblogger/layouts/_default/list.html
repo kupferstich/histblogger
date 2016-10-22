@@ -1,5 +1,5 @@
 {{ define "main" }}
-      <div class="ui items">
+      <div class="ui stackable two column grid">
       {{ range $i, $p := (.Paginate .Data.Pages).Pages }}
       {{ $p.Render "li" }}
       {{ end }}

@@ -1,11 +1,10 @@
-#baseurl = "https://kupferstich.github.io/"
-baseurl = "http://kupferstich.apxp.info/"
-title = "Kupferstichsammlung Hamburg"
+baseurl = "https://kupferstich.github.io/"
+title = "Kupferschatzsucher"
 languageCode = "en-us"
 theme = "histblogger"
 paginate = 12   
 
-disqusShortname = "histblogger"
+disqusShortname = "kupferstich"
 
 [params]
   dateformat = "02.01.2006"
