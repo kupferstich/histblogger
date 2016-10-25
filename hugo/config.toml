@@ -1,5 +1,5 @@
 baseurl = "https://kupferstich.github.io/"
-title = "Kupferschatzsucher"
+title = "Kopergravure"
 languageCode = "en-us"
 theme = "histblogger"
 paginate = 12   
