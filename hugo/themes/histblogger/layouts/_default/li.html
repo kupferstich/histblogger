@@ -1,22 +1,31 @@
 <div class="item column">
   <div class="ui segment">
   {{ $ := . }}
-  {{ with  .Params.imagethumb }}
   
-    <a class="ui rounded image" href="{{ $.Permalink }}">
+  <div class="content">
+      <a class="ui big header" href="{{ $.Site.BaseURL }}{{ .Section }}"> {{ index .Site.Data.text .Section }} </a><br>
+      <a class="ui large header" href="{{ .Permalink }}">{{ .Title }}</a>
+      
+      
+      {{ with  .Params.imagecard }}
+  <div class="extra">
+    <a class="ui fluid rounded image" href="{{ $.Permalink }}">
           <img src="{{ $.Site.BaseURL }}{{ . }}">
     </a>
-  
+    <br><br>
+  </div>
   {{ end }}
-  <div class="content">
-      <a class="header" href="{{ .Permalink }}">{{ .Title }}</a>
       <div class="extra">
-         <p>Veröffentlicht: {{ .Date.Format .Site.Params.datetimeformat }}</p>
+         <b>Veröffentlicht: {{ .Date.Format .Site.Params.datetimeformat }}</b>
       </div>
       <div class="description">
        
         <p>{{ .Description | markdownify }}</p>
         <p>{{ .Summary }} <a class="header" href="{{ .Permalink }}">mehr</a></p>
+      </div>
+      <div class="extra">
+       
+        {{ partial "tags.html" . }}
       </div>
       
     </div>

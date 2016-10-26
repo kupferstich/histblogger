@@ -1,7 +1,17 @@
 {{ define "main" }}
-                <h2>{{ .Title }}</h2>
-        <img src="{{ $.Site.BaseURL }}{{ .Params.imagemedium }}" class="ui image rounded">
+                <h1 class="ui header huge">{{ .Title }}</h1>
+                <div class="ui header big"> {{ .Date.Format .Site.Params.datetimeformat }} 
+                  {{- with .Description }}: {{ . }} {{ end }}
+                </div>
         <div class="segment">
+        <img src="{{ $.Site.BaseURL }}{{ .Params.imagemedium }}" class="ui image floated rounded">
           {{ .Content }}
+          {{ partial "tags.html" . }}<br><br>
+          {{ partial "artworks.html" . }}<br><br>
+          {{ partial "artists.html" . }}
+          <div class="ui clearing divider"></div>
+        </div>
+        <div class="ui segment">
+        {{ template "_internal/disqus.html" . }}
         </div>
 {{ end }}               

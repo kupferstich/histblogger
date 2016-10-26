@@ -1,6 +1,8 @@
 <div class="ui fluid card">   
+  <div class="content">
+    <a href="{{ .Permalink }}" class="header">{{ .Title }}</a>
+  </div>
     <a href="{{ .Permalink }}" class="image">
-   
       <img src="{{ $.Site.BaseURL }}{{.Params.imagecard}}">
     </a>
     <div class="content">

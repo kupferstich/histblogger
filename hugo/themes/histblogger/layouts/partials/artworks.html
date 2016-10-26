@@ -1,0 +1,12 @@
+<b>Kunstwerke</b>: 
+{{ $pictures := .Site.Data.artwork }}
+{{ range .Params.pictures }}
+    {{ $picture := index $pictures . }}
+    {{ with $picture}}
+        <div class="ui basic label">
+        <a href="{{ $.Site.BaseURL }}artwork/{{ $picture.ID }}">
+        <i class="paint brush icon"></i>
+        {{ $picture.Title }}</a>
+        </div>
+    {{ end }}
+{{ end }}
