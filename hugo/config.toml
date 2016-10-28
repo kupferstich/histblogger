@@ -8,7 +8,7 @@ disqusShortname = "kupferstich"
 
 [params]
   dateformat = "02.01.2006"
-  datetimeformat = "02.01.2006 03:04"
+  datetimeformat = "02.01.2006 15:04"
 
 [[menu.main]]
     name = "about hugo"

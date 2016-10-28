@@ -3,5 +3,6 @@
       {{ range $i, $p := (.Paginate .Data.Pages).Pages }}
       {{ $p.Render "li" }}
       {{ end }}
+      {{ partial "pagination.html" . }} 
       </div>
 {{ end }}

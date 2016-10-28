@@ -2,11 +2,21 @@
       <h2>{{ .Title }}</h2>
     <div class="ui stackable two column grid">
       <div class="column">
-    <img src="{{ $.Site.BaseURL }}{{ .Params.imagemedium }}" class="ui left floated image rounded">
-      {{ partial "artistmeta.html" . }}
-      {{ .Content }}
+        <div class="ui stackable two column grid">
+          <div class="column">
+            <div class="ui image fluid rounded">
+            <img src="{{ $.Site.BaseURL }}{{ .Params.imagemedium }}" class="">
+            {{ .Params.imagesource.Attribution | safeHTML }}
+            </div>
+          </div>
+          <div class="column">
+            {{ partial "artistmeta.html" . }}
+            {{ .Content }}
+          </div>
+        </div>
       </div>
       <div class="column">
+      {{ partial "linkedposts.html" . }}
       {{ partial "artistpictures.html" . }}
       </div>
       

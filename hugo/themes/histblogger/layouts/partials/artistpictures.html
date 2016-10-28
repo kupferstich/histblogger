@@ -2,28 +2,26 @@
 {{ $artworks := .Site.Data.artwork }}
 {{ $artist := index $artists .Params.id }}
 {{ $ := . }}
-<div class="ui feed">
-{{ range $artist.Pictures  }}
+{{ with $artist.Pictures }}
+<h3>Zugehörige Kunstwerke</h3>
+<div class="ui list">
+{{ range .  }}
 {{ $pic := index $artworks . }}
 {{ if eq $pic.Status "fertig" }}
-<div class="event">
-    <div class="label">
-       
-    </div>
-    <div class="content">
-      <div class="date">
-        {{ $pic.YearIssued }}
-      </div>
-      <div class="summary">
-         <a href="{{ $.Site.BaseURL }}artwork/{{ $pic.ID }}/">{{ $pic.Title }}</a><br>
-         {{ $pic.Topic }}
-      </div>
-      <div class="extra images">
-        <a href="{{ $.Site.BaseURL }}artwork/{{ $pic.ID }}/"><img src="{{ $.Site.BaseURL}}img/artwork/{{ $pic.ID }}/{{  $pic.ID }}_small.jpg"></a>
-       
+<div class="item">
+
+   <a href="{{ $.Site.BaseURL }}artwork/{{ $pic.ID }}/"class="ui image"><img src="{{ $.Site.BaseURL}}img/artwork/{{ $pic.ID }}/{{  $pic.ID }}_thumb.jpg"></a>
+    <div class="middle aligned content">
+      <a href="{{ $.Site.BaseURL }}artwork/{{ $pic.ID }}/" class="header">{{ $pic.YearIssued }}: {{ $pic.Title }}</a>
+      <div class="description">{{ $pic.Topic }}<br><br>
+        {{ range $pic.Tags }}
+          <a class="ui tag label" href="{{ $.Site.BaseURL}}tags/{{ . | urlize }}">{{ . }}</a>
+        {{ end }}
       </div>
     </div>
+ 
   </div>
 {{ end }}
 {{ end }}
 </div>
+{{ end }}

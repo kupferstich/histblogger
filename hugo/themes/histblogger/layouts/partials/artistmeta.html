@@ -2,4 +2,16 @@
 {{ $artist := index $artists .Params.id }}
 Geboren: {{ $artist.YearBirth }} in {{ $artist.CityBirth }}<br>
 Gestorben: {{ $artist.YearDeath }} in {{ $artist.CityDeath }}<br>
+
+<div class="ui relaxed divided list">
+  {{ range .Params.links }}
+  <div class="item">
+    <i class="large external middle aligned icon"></i>
+    <div class="content">
+      <a class="header" href="{{.Url}}" target="_blank">{{ .Title }}</a>
+      <div class="description">{{ with .Text }}<br>{{ . }}{{ end }}</div>
+    </div>
+  </div>
+  {{ end }}
+</div>
 <p>{{ $artist.Text }} </p>

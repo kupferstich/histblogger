@@ -1,0 +1,26 @@
+{{ $ := . }}
+{{ with .Params.posts}}
+<h3>Blogeinträge</h3>
+<div class="ui list">
+{{ range . }}
+{{ $listpost := . }}
+{{ range where $.Site.Pages "Section" "post"}}
+{{ $post := . }}
+{{ if eq $post.Params.id $listpost }}
+<div class="item">
+    <div class="middle aligned content">
+      <a href="{{ $.Site.BaseURL }}post/{{ $post.Params.id }}/" class="header">
+      {{ $post.Title }}</a>
+      <div class="description">
+          {{ $post.Date.Format .Site.Params.datetimeformat }}<br>
+          {{ $post.Params.description }}<br><br>
+       
+      </div>
+    </div>
+ 
+  </div>
+{{ end }}
+{{ end }}
+{{ end }}
+</div>
+{{ end }}
