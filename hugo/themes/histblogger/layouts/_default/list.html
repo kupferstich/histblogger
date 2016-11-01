@@ -1,3 +1,6 @@
+{{ block "twittermeta" . }}
+{{ end }}
+
 {{ define "main" }}
       <div class="ui stackable three column grid">
       {{ range $i, $p := (.Paginate .Data.Pages).Pages }}
