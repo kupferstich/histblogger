@@ -1,3 +1,11 @@
+{{ define "twittermeta"}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Koper_Gravure">
+<meta name="twitter:title" content="{{ .Title }}">
+{{ with .Description }}<meta name="twitter:description" content="{{ . }}">{{ end }}
+{{ with .Params.imagemedium }}<meta name="twitter:image" content="{{ $.Site.BaseURL }}{{ . }}">{{ end }}
+{{ end }}
+
 {{ define "main" }}  
       <h2>{{ .Title }}</h2>
     <div class="ui stackable two column grid">
