@@ -1,9 +1,5 @@
 {{ define "twittermeta"}}
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@Koper_Gravure">
-<meta name="twitter:title" content="{{ .Title }}">
-{{ with .Description }}<meta name="twitter:description" content="{{ . }}">{{ end }}
-{{ with .Params.imagemedium }}<meta name="twitter:image" content="{{ $.Site.BaseURL }}{{ . }}">{{ end }}
+{{ partial "twittermeta.html" . }}
 {{ end }}
 
 {{ define "main" }}  
