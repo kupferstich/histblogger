@@ -4,7 +4,7 @@
 {{ define "main" }}
     <h1>Kunstwerke</h1>
 
-        <div class="ui three stackable cards">
+        <div class="ui four stackable cards">
             {{ range $i, $p := (.Paginate .Data.Pages).Pages }}
             {{ $p.Render "card" }}
             {{ end }}
