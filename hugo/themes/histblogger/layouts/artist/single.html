@@ -7,10 +7,14 @@
       <div class="column">
         <div class="ui stackable two column grid">
           <div class="column">
+            
             <div class="ui image fluid rounded">
-            <img src="{{ $.Site.BaseURL }}{{ .Params.imagemedium }}" class="">
+              {{ with .Params.imagemedium }}
+            <img src="{{ $.Site.BaseURL }}{{ . }}" class="">
+            {{ end }}
             {{ .Params.imagesource.Attribution | safeHTML }}
             </div>
+            
           </div>
           <div class="column">
             {{ partial "artistmeta.html" . }}
