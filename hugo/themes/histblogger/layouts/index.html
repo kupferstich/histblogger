@@ -1,0 +1,11 @@
+{{ define "twittermeta" }}
+{{ end }}
+
+{{ define "main" }}
+      <div class="ui stackable four column grid">
+      {{ range $i, $p := (.Paginate (where .Data.Pages "Section" "!=" "artist")).Pages  }}
+      {{ $p.Render "li" }}
+      {{ end }}
+      {{ partial "pagination.html" . }} 
+      </div>
+{{ end }}
