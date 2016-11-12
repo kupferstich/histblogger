@@ -12,7 +12,9 @@
               {{ with .Params.imagemedium }}
             <img src="{{ $.Site.BaseURL }}{{ . }}" class="">
             {{ end }}
-            {{ .Params.imagesource.Attribution | safeHTML }}
+            {{ with .Params.imagesource.Attribution}}
+            {{ . | safeHTML }}
+            {{ end }}
             </div>
             
           </div>
