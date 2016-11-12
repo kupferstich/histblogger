@@ -12,6 +12,7 @@
               {{ with .Params.imagemedium }}
             <img src="{{ $.Site.BaseURL }}{{ . }}" class="">
             {{ end }}
+            {{ .Params.imagesource }}
             {{ with .Params.imagesource.Attribution}}
             {{ . | safeHTML }}
             {{ end }}
