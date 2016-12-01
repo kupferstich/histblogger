@@ -14,9 +14,7 @@
     <div class="middle aligned content">
       <a href="{{ $.Site.BaseURL }}artwork/{{ $pic.ID }}/" class="header">{{ $pic.YearIssued }}: {{ $pic.Title }}</a>
       <div class="description">{{ $pic.Topic }}<br><br>
-        {{ range $pic.Tags }}
-          <a class="ui tag label" href="{{ $.Site.BaseURL}}tags/{{ . | urlize }}">{{ . }}</a>
-        {{ end }}
+        
       </div>
     </div>
  
